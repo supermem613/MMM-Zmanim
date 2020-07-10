@@ -1,0 +1,16 @@
+{
+  "name": "Zmanim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Zmanim.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "kosher-zmanim": "^0.6.1",
+    "moment": "^2.27.0"
+  }
+}
