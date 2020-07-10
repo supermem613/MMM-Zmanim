@@ -1,0 +1,9 @@
+.title {
+    text-align: right;
+}
+
+.value {
+    text-align: left;
+    color: white;
+    padding-left: 10px;
+}
