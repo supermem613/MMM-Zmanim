@@ -2,6 +2,7 @@ var NodeHelper = require("node_helper");
 var KosherZmanim = require("kosher-zmanim");
 var moment = require("moment");
 
+// TODO: Add refetching logic
 module.exports = NodeHelper.create({
     start: function() {},
     
