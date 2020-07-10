@@ -42,14 +42,6 @@ Module.register("Zmanim", {
         return table
     },
 
-    notificationReceived: function(notification, payload, sender) {
-        switch(notification) {
-          case "DOM_OBJECTS_CREATED":
-            this.sendSocketNotification("FETCH_ZMANIM",this.config);
-            break
-        }
-    },
-
     socketNotificationReceived: function(notification, payload) {
         switch(notification) {
           case "FETCHED_ZMANIM":
@@ -63,5 +55,12 @@ Module.register("Zmanim", {
         var self = this
 
         self.array = [{ subject: 'LOADING_ENTRIES' }]
+
+        // update tasks every 60s
+        var refreshFunction = function () {
+            self.sendSocketNotification('FETCH_ZMANIM', self.config)
+        }
+        refreshFunction()
+        setInterval(refreshFunction, 1)
     }
 });
