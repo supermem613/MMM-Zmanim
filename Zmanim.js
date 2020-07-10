@@ -61,6 +61,6 @@ Module.register("Zmanim", {
             self.sendSocketNotification('FETCH_ZMANIM', self.config)
         }
         refreshFunction()
-        setInterval(refreshFunction, 1)
+        setInterval(refreshFunction, 60000)
     }
 });
