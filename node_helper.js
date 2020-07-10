@@ -30,7 +30,7 @@ module.exports = NodeHelper.create({
         const zmanim = KosherZmanim.getZmanimJson(options);
         var zmanimDateArray = [];
 
-        console.log(KosherZmanim.YomiCalculator.getDafYomiBavli(new KosherZmanim.JewishCalendar()).getMasechtaTransliterated());
+        // console.log(KosherZmanim.YomiCalculator.getDafYomiBavli(new KosherZmanim.JewishCalendar()).getMasechtaTransliterated());
 
         for (var i in zmanim["BasicZmanim"]) {
             if (i in config.displayedFields) {
