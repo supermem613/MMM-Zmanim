@@ -19,6 +19,11 @@ Module.register("Zmanim", {
             'Tzais': 'Tzais',
         },
     },
+
+    // Define required scripts.
+	getStyles: function () {
+		return ["Zmanim.css"];
+	},
     
     getDom: function() {
         var table = document.createElement("table");
