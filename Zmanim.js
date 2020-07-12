@@ -40,18 +40,26 @@ Module.register("Zmanim", {
             row.appendChild(cell);
         }
 
-        for (value in this.zmanimArray) {
+        for (index in this.zmanimArray) {
+            const zmanEntry = this.zmanimArray[index];
+            const currentDate = new Date();
+            const zmanHasPassed = new Date(zmanEntry[1]) < currentDate.getTime();
+            const arrayCount = this.zmanimArray.length;
+            const baseOpacity = 0.15;
+            const capOpacity = 0.35;
+            
             var row = document.createElement("tr");
+            row.style.opacity = zmanHasPassed ? (baseOpacity + (capOpacity - baseOpacity) * index / arrayCount) : 1.0;
             table.appendChild(row);
 
             var titleCell = document.createElement("td");
 			titleCell.className = "zmanimTitle";
-			titleCell.innerHTML = this.zmanimArray[value][0] + ": ";
+			titleCell.innerHTML = zmanEntry[0] + ": ";
 			row.appendChild(titleCell);
 
 			var valueCell = document.createElement("td");
 			valueCell.className = "zmanimValue";
-			valueCell.innerHTML = this.zmanimArray[value][1];
+			valueCell.innerHTML = zmanEntry[2];
 			row.appendChild(valueCell);
         }
         

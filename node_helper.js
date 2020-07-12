@@ -47,7 +47,7 @@ module.exports = NodeHelper.create({
             }
             
             if (i in config.displayedFields) {
-                zmanimDateArray.push([config.displayedFields[i], moment(zmanim[i]).format('h:mm A')])
+                zmanimDateArray.push([config.displayedFields[i], zmanim[i], moment(zmanim[i]).format('h:mm A')])
             }
         }
 
