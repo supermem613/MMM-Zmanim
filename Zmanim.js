@@ -29,18 +29,29 @@ Module.register("Zmanim", {
         var table = document.createElement("table");
         table.className = "small";
 
-        for (value in this.array) {
+        for (value in this.calendarArray) {
+            var row = document.createElement("tr");
+            table.appendChild(row);
+
+            var cell = document.createElement("th");
+			cell.className = "calendarValue";
+            cell.innerHTML = this.calendarArray[value];
+            cell.colSpan = 2;
+            row.appendChild(cell);
+        }
+
+        for (value in this.zmanimArray) {
             var row = document.createElement("tr");
             table.appendChild(row);
 
             var titleCell = document.createElement("td");
-			titleCell.className = "title";
-			titleCell.innerHTML = this.array[value][0] + ": ";
+			titleCell.className = "zmanimTitle";
+			titleCell.innerHTML = this.zmanimArray[value][0] + ": ";
 			row.appendChild(titleCell);
 
 			var valueCell = document.createElement("td");
-			valueCell.className = "value";
-			valueCell.innerHTML = this.array[value][1];
+			valueCell.className = "zmanimValue";
+			valueCell.innerHTML = this.zmanimArray[value][1];
 			row.appendChild(valueCell);
         }
         
@@ -50,7 +61,8 @@ Module.register("Zmanim", {
     socketNotificationReceived: function(notification, payload) {
         switch(notification) {
           case "FETCHED_ZMANIM":
-            this.array = payload;
+            this.zmanimArray = payload.zmanim;
+            this.calendarArray = payload.calendar;
             this.updateDom();
             break
         }
@@ -59,7 +71,7 @@ Module.register("Zmanim", {
     start: function () {
         var self = this
 
-        self.array = [{ subject: 'LOADING_ENTRIES' }]
+        self.zmanimArray = [{ subject: 'LOADING_ENTRIES' }]
 
         // update tasks every 60s
         var refreshFunction = function () {

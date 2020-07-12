@@ -24,20 +24,57 @@ module.exports = NodeHelper.create({
             latitude: config.latitude,
             longitude: config.longitude,
             elevation: config.elevation,
-            complexZmanim: false,
+            complexZmanim: true,
         };
         
-        const zmanim = KosherZmanim.getZmanimJson(options);
+        const zmanim = KosherZmanim.getZmanimJson(options)["Zmanim"];
         var zmanimDateArray = [];
+        var calendarArray = [];
 
-        // console.log(KosherZmanim.YomiCalculator.getDafYomiBavli(new KosherZmanim.JewishCalendar()).getMasechtaTransliterated());
+        String.prototype.capitalizedFirstLetter = function() {
+            return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
+        }
 
-        for (var i in zmanim["BasicZmanim"]) {
+        const calendar = new KosherZmanim.JewishCalendar(new Date());
+        const parsha = KosherZmanim.Parsha[this.getUpcomingParsha(new Date())];
+        const parshaAdjustedName = parsha.replace('_', '-').capitalizedFirstLetter();
+        
+        calendarArray.push("Parsha: " + parshaAdjustedName);
+
+        for (var i in zmanim) {
+            if (i == "CandleLighting" && !calendar.hasCandleLighting()) {
+                continue;
+            }
+            
             if (i in config.displayedFields) {
-                zmanimDateArray.push([config.displayedFields[i], moment(zmanim["BasicZmanim"][i]).format('h:mm A')])
+                zmanimDateArray.push([config.displayedFields[i], moment(zmanim[i]).format('h:mm A')])
             }
         }
 
-        self.sendSocketNotification('FETCHED_ZMANIM', zmanimDateArray);
-    }
+        self.sendSocketNotification(
+            'FETCHED_ZMANIM', {
+                'zmanim': zmanimDateArray,
+                'calendar': calendarArray,
+            }
+        );
+    },
+
+    getUpcomingParsha: function(current) {
+        const nearestSaturday = new Date(this.getNextDayOfWeek(current, 6));
+        const calendar = new KosherZmanim.JewishCalendar(nearestSaturday);
+        const yearType = calendar.getParshaYearType();
+        const roshHashanaDayOfWeek = KosherZmanim.JewishCalendar.getJewishCalendarElapsedDays(calendar.getJewishYear()) % 7;
+        const day = roshHashanaDayOfWeek + calendar.getDaysSinceStartOfJewishYear();
+
+        return KosherZmanim.JewishCalendar.parshalist[yearType][day / 7];
+    },
+
+    // Get the next day of the week given index 0-6
+    getNextDayOfWeek: function(date, dayOfWeek) {
+        var resultDate = new Date(date.getTime());
+    
+        resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay()) % 7);
+    
+        return resultDate;
+    },
 })

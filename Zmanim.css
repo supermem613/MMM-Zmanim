@@ -1,9 +1,14 @@
-.title {
+.zmanimTitle {
     text-align: right;
 }
 
-.value {
+.zmanimValue {
     text-align: left;
     color: white;
     padding-left: 10px;
+}
+
+.calendarValue {
+    text-align: center;
+    color: white;
 }
