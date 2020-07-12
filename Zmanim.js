@@ -45,8 +45,8 @@ Module.register("Zmanim", {
             const currentDate = new Date();
             const zmanHasPassed = new Date(zmanEntry[1]) < currentDate.getTime();
             const arrayCount = this.zmanimArray.length;
-            const baseOpacity = 0.5;
-            const capOpacity = 0.75;
+            const baseOpacity = 0.35;
+            const capOpacity = 0.5;
             
             var row = document.createElement("tr");
             row.style.opacity = zmanHasPassed ? (baseOpacity + (capOpacity - baseOpacity) * index / arrayCount) : 1.0;
