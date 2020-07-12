@@ -38,6 +38,10 @@ Module.register("Zmanim", {
             cell.innerHTML = this.calendarArray[value];
             cell.colSpan = 2;
             row.appendChild(cell);
+
+            if (value == this.calendarArray.length - 1) {
+                cell.style.borderBottom = "1px solid white";
+            }
         }
 
         for (index in this.zmanimArray) {
@@ -47,6 +51,7 @@ Module.register("Zmanim", {
             const arrayCount = this.zmanimArray.length;
             const baseOpacity = 0.2;
             const capOpacity = 0.4;
+            const isFirstRow = index == 0;
             
             var row = document.createElement("tr");
             row.style.opacity = zmanHasPassed ? (baseOpacity + (capOpacity - baseOpacity) * index / arrayCount) : 1.0;
@@ -60,7 +65,12 @@ Module.register("Zmanim", {
 			var valueCell = document.createElement("td");
 			valueCell.className = "zmanimValue";
 			valueCell.innerHTML = zmanEntry[2];
-			row.appendChild(valueCell);
+            row.appendChild(valueCell);
+            
+            if (isFirstRow) {
+                titleCell.style.paddingTop = "10px";
+                valueCell.style.paddingTop = "10px";
+            }
         }
         
         return table
