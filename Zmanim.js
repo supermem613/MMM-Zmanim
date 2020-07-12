@@ -18,6 +18,8 @@ Module.register("Zmanim", {
             'Sunset': 'Shkiya',
             'Tzais': 'Tzais',
         },
+        displaysPastZmanim: true,
+        graysOutPastZmanim: false,
     },
 
     // Define required scripts.
@@ -26,6 +28,7 @@ Module.register("Zmanim", {
 	},
     
     getDom: function() {
+        var self = this;
         var table = document.createElement("table");
         table.className = "small";
 
@@ -54,7 +57,12 @@ Module.register("Zmanim", {
             const isFirstRow = index == 0;
             
             var row = document.createElement("tr");
-            row.style.opacity = zmanHasPassed ? (baseOpacity + (capOpacity - baseOpacity) * index / arrayCount) : 1.0;
+            if (self.config.displaysPastZmanim && self.config.graysOutPastZmanim) {
+                row.style.opacity = zmanHasPassed ? (baseOpacity + (capOpacity - baseOpacity) * index / arrayCount) : 1.0;
+            } else if (!self.config.displaysPastZmanim && zmanHasPassed) {
+                continue;
+            }
+            
             table.appendChild(row);
 
             var titleCell = document.createElement("td");
