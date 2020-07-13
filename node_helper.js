@@ -15,10 +15,11 @@ module.exports = NodeHelper.create({
     },
 
     getZmanim: function(config) {
-        var self = this;
+        const self = this;
+        const currentDate = new Date();
         
         const options = {
-            date: new Date(),
+            date: currentDate,
             timeZoneId: config.timeZoneId,
             locationName: config.locationName,
             latitude: config.latitude,
@@ -35,11 +36,13 @@ module.exports = NodeHelper.create({
             return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
         }
 
-        const calendar = new KosherZmanim.JewishCalendar(new Date());
-        const parsha = KosherZmanim.Parsha[this.getUpcomingParsha(new Date())];
-        const parshaAdjustedName = parsha.replace('_', '-').capitalizedFirstLetter();
+        const calendar = new KosherZmanim.JewishCalendar(currentDate);
+        const hebrewDateFormatter = new KosherZmanim.HebrewDateFormatter();
+        const parsha = this.getUpcomingParsha(currentDate);
+        const parshaName = hebrewDateFormatter.getTransliteratedParshiosList()[parsha];
         
-        calendarArray.push("Parsha: " + parshaAdjustedName);
+        calendarArray.push(hebrewDateFormatter.format(new KosherZmanim.JewishDate(currentDate)));
+        calendarArray.push("Parsha: " + parshaName);
 
         for (var i in zmanim) {
             if (i == "CandleLighting" && !calendar.hasCandleLighting()) {
