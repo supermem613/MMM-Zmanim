@@ -20,6 +20,13 @@ Module.register("Zmanim", {
         },
         displaysPastZmanim: true,
         graysOutPastZmanim: false,
+        inIsrael: false,
+        showsHebrewDate: true,
+        showsParsha: true,
+        showsDaf: true,
+        showsDayOfOmer: true,
+        showsSpecialShabbos: true,
+        showsYomTov: true,
     },
 
     // Define required scripts.

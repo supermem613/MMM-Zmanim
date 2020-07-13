@@ -40,9 +40,27 @@ module.exports = NodeHelper.create({
         const hebrewDateFormatter = new KosherZmanim.HebrewDateFormatter();
         const parsha = this.getUpcomingParsha(currentDate);
         const parshaName = hebrewDateFormatter.getTransliteratedParshiosList()[parsha];
+        calendar.setInIsrael(config.inIsrael);
+
+        if (config.showsHebrewDate) {
+            calendarArray.push(hebrewDateFormatter.format(new KosherZmanim.JewishDate(currentDate)));
+        }
+        if (config.showsParsha) {
+            calendarArray.push("Parsha: " + parshaName);
+        }
+        if (config.showsDaf) {
+            calendarArray.push("Daf: " + hebrewDateFormatter.formatDafYomiBavli(KosherZmanim.YomiCalculator.getDafYomiBavli(calendar)));
+        }
         
-        calendarArray.push(hebrewDateFormatter.format(new KosherZmanim.JewishDate(currentDate)));
-        calendarArray.push("Parsha: " + parshaName);
+        if (config.showsYomTov && calendar.getYomTovIndex() !== -1) {
+            calendarArray.push(hebrewDateFormatter.formatYomTov(calendar));
+        }
+        if (config.showsDayOfOmer && calendar.getDayOfOmer() !== -1) {
+            calendarArray.push("Day of Omer: " + calendar.getDayOfOmer());
+        }
+        if (config.showsSpecialShabbos && self.getUpcomingSpecialShabbos(currentDate) !== KosherZmanim.Parsha.NONE) {
+            calendarArray.push("Shabbat " + hebrewDateFormatter.getTransliteratedParshiosList()[self.getUpcomingSpecialShabbos(currentDate)]);
+        }
 
         for (var i in zmanim) {
             if (i == "CandleLighting" && !calendar.hasCandleLighting()) {
@@ -70,6 +88,13 @@ module.exports = NodeHelper.create({
         const day = roshHashanaDayOfWeek + calendar.getDaysSinceStartOfJewishYear();
 
         return KosherZmanim.JewishCalendar.parshalist[yearType][day / 7];
+    },
+
+    getUpcomingSpecialShabbos: function(current) {
+        const nearestSaturday = new Date(this.getNextDayOfWeek(current, 6));
+        const calendar = new KosherZmanim.JewishCalendar(nearestSaturday);
+
+        return calendar.getSpecialShabbos();
     },
 
     // Get the next day of the week given index 0-6
