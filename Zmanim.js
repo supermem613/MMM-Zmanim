@@ -70,11 +70,6 @@ Module.register("Zmanim", {
             } else if (!self.config.displaysPastZmanim && zmanHasPassed) {
                 continue;
             }
-
-            if (self.config.alwaysShowDividerLine && this.calendarArray.length == 0) {
-                row.style.borderTop = "1px solid white";
-                row.style.paddingTop = "10px";
-            }
             
             table.appendChild(row);
 
@@ -91,6 +86,11 @@ Module.register("Zmanim", {
             if (isFirstRow) {
                 titleCell.style.paddingTop = "10px";
                 valueCell.style.paddingTop = "10px";
+
+                if (self.config.alwaysShowDividerLine && this.calendarArray.length == 0) {
+                    titleCell.style.borderTop = "1px solid white";
+                    valueCell.style.borderTop = "1px solid white";
+                }
             }
         }
         
