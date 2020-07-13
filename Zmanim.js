@@ -92,12 +92,14 @@ Module.register("Zmanim", {
     },
 
     socketNotificationReceived: function(notification, payload) {
-        switch(notification) {
-          case "FETCHED_ZMANIM":
-            this.zmanimArray = payload.zmanim;
-            this.calendarArray = payload.calendar;
-            this.updateDom();
-            break
+        if (payload.id == this.identifier) {
+            switch(notification) {
+                case "FETCHED_ZMANIM":
+                  this.zmanimArray = payload.zmanim;
+                  this.calendarArray = payload.calendar;
+                  this.updateDom();
+                  break
+              }
         }
     },
 
@@ -108,6 +110,7 @@ Module.register("Zmanim", {
 
         // update tasks every 60s
         var refreshFunction = function () {
+            self.config['id'] = self.identifier;
             self.sendSocketNotification('FETCH_ZMANIM', self.config)
         }
         refreshFunction()

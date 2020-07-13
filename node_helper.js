@@ -76,6 +76,7 @@ module.exports = NodeHelper.create({
             'FETCHED_ZMANIM', {
                 'zmanim': zmanimDateArray,
                 'calendar': calendarArray,
+                'id': config.id,
             }
         );
     },
