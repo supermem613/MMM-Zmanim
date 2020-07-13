@@ -52,6 +52,7 @@ Module.register("Zmanim", {
 
             if (value == this.calendarArray.length - 1) {
                 cell.style.borderBottom = "1px solid white";
+                cell.style.paddingBottom = "10px";
             }
         }
 
