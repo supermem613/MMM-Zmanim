@@ -3,6 +3,7 @@ Display Daily Jewish times and events from the [KosherZmanim API](https://github
 
 ![Screenshot](screenshot.png)
 ![Alternate Screenshot](alternateScreenshot.png)
+
 Second image based on [this configuration](https://github.com/jseidman95/MMM-Zmanim/blob/master/ClockWrappingExampleConfiguration.md)
 
 ## Installation
