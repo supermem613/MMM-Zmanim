@@ -1,6 +1,6 @@
 ```
 	modules: [
-        ...
+		...
 		{
 			module: "MMM-Zmanim",
 			position: "top_center",
@@ -25,6 +25,6 @@
 				alwaysShowDividerLine: true
 			}
 		},
-        ...
+		...
 	]
 ```
