@@ -2,7 +2,6 @@ var NodeHelper = require("node_helper");
 var KosherZmanim = require("kosher-zmanim");
 var moment = require("moment");
 
-// TODO: Add refetching logic
 module.exports = NodeHelper.create({
     start: function() {},
     
@@ -17,7 +16,6 @@ module.exports = NodeHelper.create({
     getZmanim: function(config) {
         const self = this;
         const currentDate = new Date();
-        
         const options = {
             date: currentDate,
             timeZoneId: config.timeZoneId,
@@ -27,8 +25,8 @@ module.exports = NodeHelper.create({
             elevation: config.elevation,
             complexZmanim: true,
         };
-        
         const zmanim = KosherZmanim.getZmanimJson(options)["Zmanim"];
+        console.log(zmanim);
         var zmanimDateArray = [];
         var calendarArray = [];
 
