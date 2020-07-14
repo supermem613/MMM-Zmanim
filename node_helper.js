@@ -26,7 +26,7 @@ module.exports = NodeHelper.create({
             complexZmanim: true,
         };
         const zmanim = KosherZmanim.getZmanimJson(options)["Zmanim"];
-        console.log(zmanim);
+
         var zmanimDateArray = [];
         var calendarArray = [];
 

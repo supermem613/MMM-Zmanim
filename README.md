@@ -2,6 +2,8 @@
 Display Daily Jewish times and events from the [KosherZmanim API](https://github.com/KosherJava/zmanim) in your [MagicMirror](https://github.com/MichMich/MagicMirror).
 
 ![Screenshot](screenshot.png)
+![Alternate Screenshot](alternateScreenshot.png)
+Second image based on this configuration
 
 ## Installation
 1. Go to `MagicMirror/modules`
@@ -11,13 +13,15 @@ Display Daily Jewish times and events from the [KosherZmanim API](https://github
 To use this module, add it to the modules array in the `config/config.js` file:
 ```
 modules: [
+    ...
     {
         module: "MMM-Zmanim",
         position: "top_left", // This can be any region
         config: {
             // See 'Configuration options' for more information.
         }
-    }
+    },
+    ...
 ]
 ```
 
