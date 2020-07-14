@@ -43,7 +43,7 @@ The following properties can be configured:
 | `showsYomTov`           | `true`             | Boolean that controls if today's yom tov (if applicable) is shown at the top
 | `alwaysShowDividerLine` | `false`            | Boolean that controls if the divider line is always shown (even if no top content is shown)
 
-## displayedFields summary
+## displayedFields
 displayedFields is a property in the config that controls the zmanim displayed and their names.  Its type is a JSON object with the 
 following structure:
 ```
@@ -53,19 +53,9 @@ following structure:
         ...
     }
 ```
-Where `<ZmanAPIName>` is the `KosherZmanim` field name where the possible options are [KosherZmanim API](https://github.com/KosherJava/zmanim);
+Where `<ZmanAPIName>` is the `KosherZmanim` field name where the possible options are [here](https://github.com/jseidman95/Zmanim/blob/master/ComplexZmanimFields.txt);
 and `<DisplayedZmanName>` is the name that will be displayed and can be whatever you choose
 
 ## Credits
 - MagicMirror: https://github.com/MichMich/MagicMirr
-
-: ,
-: ,
-: ,
-: ,
-: ,
-: ,
-: ,
-: ,
-: ,
-: 
+- KosherZmanim: https://github.com/BehindTheMath/KosherZmanim
