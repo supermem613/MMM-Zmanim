@@ -87,7 +87,7 @@ Module.register("MMM-Zmanim", {
                 titleCell.style.paddingTop = "10px";
                 valueCell.style.paddingTop = "10px";
 
-                if (self.config.alwaysShowDividerLine && this.calendarArray.length == 0) {
+                if (self.config.alwaysShowDividerLine && Array.isArray(self.calendarArray) && self.calendarArray.length == 0) {
                     titleCell.style.borderTop = "1px solid white";
                     valueCell.style.borderTop = "1px solid white";
                 }
