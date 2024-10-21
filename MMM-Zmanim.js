@@ -23,6 +23,7 @@ Module.register("MMM-Zmanim", {
         showsHebrewDate: true,
         showsParsha: true,
         showsDaf: true,
+        showsMishnah: true,
         showsDayOfOmer: true,
         showsSpecialShabbos: true,
         showsYomTov: true,

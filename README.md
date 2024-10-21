@@ -1,6 +1,8 @@
 # MMM-Zmanim (MagicMirrorModule)
 Display Daily Jewish times and events from the [KosherZmanim API](https://github.com/KosherJava/zmanim) in your [MagicMirror](https://github.com/MichMich/MagicMirror).
 
+This is a fork from [Shmulyeng's MMM-Zmanim](https://github.com/shmulyeng/MMM-Zmanim), with the main difference that it also allows for showing the mishnah to be studied today.
+
 ![Screenshot](screenshot.png)
 ![Alternate Screenshot](alternateScreenshot.png)
 
@@ -42,6 +44,7 @@ The following properties can be configured:
 | `inIsrael`              | `false`            | Boolean that adjusts the zmanim for Israel or not
 | `showsHebrewDate`       | `true`             | Boolean that controls if the hebrew date is shown at the top
 | `showsParsha`           | `true`             | Boolean that controls if this upcoming weeks parsha is shown at the top
+| `showsMishnah`          | `false`            | Boolean that controls if today's mishnah is shown at the top
 | `showsDaf`              | `true`             | Boolean that controls if today's daf is shown at the top
 | `showsDayOfOmer`        | `true`             | Boolean that controls if today's omer count (if applicable) is shown at the top
 | `showsSpecialShabbos`   | `true`             | Boolean that controls if the upcoming special shabbos (if applicable) is shown at the top
@@ -64,5 +67,6 @@ Where `<ZmanAPIName>` is the `KosherZmanim` field name where the possible option
 and `<DisplayedZmanName>` is the name that will be displayed and can be whatever you choose
 
 ## Credits
+- MMM-Zmanim: https://github.com/shmulyeng/MMM-Zmanim
 - MagicMirror: https://github.com/MichMich/MagicMirr
 - KosherZmanim: https://github.com/BehindTheMath/KosherZmanim
