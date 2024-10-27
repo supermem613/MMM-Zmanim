@@ -45,6 +45,7 @@ The following properties can be configured:
 | `showsHebrewDate`       | `true`             | Boolean that controls if the hebrew date is shown at the top
 | `showsParsha`           | `true`             | Boolean that controls if this upcoming weeks parsha is shown at the top
 | `showsMishnah`          | `false`            | Boolean that controls if today's mishnah is shown at the top
+| `showsShulchanAruch`    | `false`            | Boolean that controls if today's Kitzur Shulchan Aruch study is shown at the top, based on the Artscroll Schedule
 | `showsDaf`              | `true`             | Boolean that controls if today's daf is shown at the top
 | `showsDayOfOmer`        | `true`             | Boolean that controls if today's omer count (if applicable) is shown at the top
 | `showsSpecialShabbos`   | `true`             | Boolean that controls if the upcoming special shabbos (if applicable) is shown at the top

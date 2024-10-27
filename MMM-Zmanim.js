@@ -24,6 +24,7 @@ Module.register("MMM-Zmanim", {
         showsParsha: true,
         showsDaf: true,
         showsMishnah: true,
+        showsShulchanAruch: true,
         showsDayOfOmer: true,
         showsSpecialShabbos: true,
         showsYomTov: true,
