@@ -369,22 +369,27 @@ function getTodaysKitzurShulchanAruch() {
 
     const dayMonth = fullDate.split(",")[0];
 
+    //
     // Additional rules:
-    if (today.isCheshvanLong()) {
-    // * When Kislev has only 29 days, 32:23-33:2 are studied on 29 Kislev,
-    // and 33:3-14 studied on 1 Tevet.
-        if (dayMonth === "29 Cheshvan") {
-            return "32:23-33:2";
-        } else if (dayMonth === "1 Kislev") {
-            return "33:3-14";
-        }
-    } else {
-    // * When Cheshvan has only 29 days, 19:8-20:2 are studied on 29 Cheshvan,
-    // and 20:3-7 are studied on 1 Kislev.
+    //
+
+    if (!today.isCheshvanLong()) {
+        // * When Cheshvan has only 29 days, 19:8-20:2 are studied on 29 Cheshvan,
+        // and 20:3-7 are studied on 1 Kislev.
         if (dayMonth === "29 Cheshvan") {
             return "19:8-20:2";
         } else if (dayMonth === "1 Kislev") {
             return "20:3-7";
+        }
+    }
+
+    if (today.isKislevShort()) {
+       // * When Kislev has only 29 days, 32:23-33:2 are studied on 29 Kislev,
+       // and 33:3-14 studied on 1 Tevet.
+        if (dayMonth === "29 Kislev") {
+            return "32:23-33:2";
+        } else if (dayMonth === "1 Tevet") {
+            return "33:3-14";
         }
     }
 
