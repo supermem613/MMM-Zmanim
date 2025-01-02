@@ -13,6 +13,7 @@ Module.register("MMM-Zmanim", {
             'SofZmanTfilaMGA': 'Zman Tefila (MGA)',
             'SofZmanTfilaGRA': 'Zman Tefila (GRA)',
             'Chatzos': 'Chatzos',
+            'PlagHamincha': 'Plag Hamincha',
             'CandleLighting': 'Candle Lighting',
             'Sunset': 'Shkiya',
             'Tzais': 'Tzais',
