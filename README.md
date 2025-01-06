@@ -1,5 +1,5 @@
 # MMM-Zmanim (MagicMirrorModule)
-Display Daily Jewish times and events from the [KosherZmanim API](https://github.com/KosherJava/zmanim) in your [MagicMirror](https://github.com/MichMich/MagicMirror).
+Display Daily Jewish times and events from the [KosherZmanim API](https://github.com/KosherJava/zmanim) in your [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror).
 
 This is a fork from [Shmulyeng's MMM-Zmanim](https://github.com/shmulyeng/MMM-Zmanim), with the main difference that it also allows for showing the mishnah to be studied today.
 
@@ -10,11 +10,12 @@ Second image based on [this configuration](https://github.com/jseidman95/MMM-Zma
 
 ## Installation
 1. Go to `MagicMirror/modules`
-2. Execute `git clone https://github.com/jseidman95/MMM-Zmanim.git`
+2. Execute `git clone https://github.com/supermem613/MMM-Zmanim`
 
 ## Using the module
 To use this module, add it to the modules array in the `config/config.js` file:
-```
+
+```js
 modules: [
     ...
     {
@@ -57,17 +58,19 @@ The following properties can be configured:
 ## displayedFields
 displayedFields is a property in the config that controls the zmanim displayed and their names.  Its type is a JSON object with the 
 following structure:
-```
+
+```json
     {
         <ZmanAPIName>: <DisplayedZmanName>,
         <ZmanAPIName>: <DisplayedZmanName>
         ...
     }
 ```
+
 Where `<ZmanAPIName>` is the `KosherZmanim` field name where the possible options are [here](https://github.com/jseidman95/Zmanim/blob/master/ComplexZmanimFields.txt);
 and `<DisplayedZmanName>` is the name that will be displayed and can be whatever you choose
 
 ## Credits
 - MMM-Zmanim: https://github.com/shmulyeng/MMM-Zmanim
-- MagicMirror: https://github.com/MichMich/MagicMirr
+- MagicMirror: https://github.com/MagicMirrorOrg/MagicMirror
 - KosherZmanim: https://github.com/BehindTheMath/KosherZmanim
