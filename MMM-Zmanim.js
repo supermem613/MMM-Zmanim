@@ -136,12 +136,12 @@ Module.register("MMM-Zmanim", {
 
         self.zmanimArray = [{ subject: 'LOADING_ENTRIES' }]
 
-        // update tasks every 60s
+        // update tasks every 600s
         var refreshFunction = function () {
             self.config['id'] = self.identifier;
             self.sendSocketNotification('FETCH_ZMANIM', self.config)
         }
         refreshFunction()
-        setInterval(refreshFunction, 60000)
+        setInterval(refreshFunction, 600000)
     }
 });
