@@ -190,7 +190,7 @@ const kitzurShulchanAruchSchedule = new Map([
     ["29 Nissan", "80:1-8"],
     ["30 Nissan", "80:9-17"],
     ["1 Iyar", "80:17-26"],
-    ["2 Iyar", "80:267-35"],
+    ["2 Iyar", "80:27-35"],
     ["3 Iyar", "80:36-45"],
     ["4 Iyar", "80:46-60"],
     ["5 Iyar", "80:61-67"],
