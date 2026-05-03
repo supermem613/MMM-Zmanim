@@ -1,14 +1,68 @@
-.zmanimTitle {
-    text-align: right;
+/* stylelint-disable selector-class-pattern -- MagicMirror requires module class to match the module name (PascalCase). */
+
+.MMM-Zmanim {
+  display: block;
 }
 
-.zmanimValue {
-    text-align: left;
-    color: white;
-    padding-left: 10px;
+/* Calendar header block: hebrew date / parsha / daf / omer / yom tov. */
+
+.MMM-Zmanim .zmanim-calendar {
+  text-align: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgb(255 255 255 / 18%);
 }
 
-.calendarValue {
-    text-align: center;
-    color: white;
+.MMM-Zmanim .zmanim-calendar-row {
+  margin: 2px 0;
+  font-size: 16px;
+}
+
+.MMM-Zmanim .zmanim-cal-label {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: #999;
+  margin-right: 6px;
+}
+
+.MMM-Zmanim .zmanim-cal-value {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Zmanim table: colon-aligned label/value pairs. */
+
+.MMM-Zmanim .zmanim-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.MMM-Zmanim .zmanimTitle {
+  text-align: right;
+  padding: 1px 8px 1px 0;
+  width: 60%;
+}
+
+.MMM-Zmanim .zmanimValue {
+  text-align: left;
+  color: #fff;
+  width: 40%;
+  padding: 1px 0;
+}
+
+.MMM-Zmanim .zmanim-tom {
+  font-style: italic;
+  color: #999;
+  font-size: 0.85em;
+  margin-left: 4px;
+}
+
+/* Next-upcoming zman: amber accent + "now" divider line above the row. */
+
+.MMM-Zmanim .zmanim-next .zmanimTitle,
+.MMM-Zmanim .zmanim-next .zmanimValue {
+  color: #f5b041;
+  border-top: 1px solid #f5b041;
+  padding-top: 6px;
 }

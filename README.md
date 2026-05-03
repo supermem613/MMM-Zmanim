@@ -53,6 +53,17 @@ The following properties can be configured:
 | `alwaysShowDividerLine` | `false`            | Boolean that controls if the divider line is always shown (even if no top content is shown)
 | `showTomorrowsZmanim`   | `false`            | Boolean that controls if zmanim for the next 24 hours are shown
 | `showAllTomorrowsZmanim`| `false`            | Boolean that controls if zmanim for the next next day
+| `frameWidth`            | `300`              | Width in pixels of the rendered module. Set higher to align with sibling modules in the same column.
+
+## Styling
+Visual conventions used by this fork:
+
+- **Frame width.** The wrapper width is set inline from `frameWidth` so you don't need to override CSS to align this module with siblings in the same column.
+- **Calendar header.** Hebrew date / Parsha / Daf / Omer / Yom Tov live in a compact block above a thin divider. Entries shaped `Label: Value` (Parsha, Daf, etc.) render the label as small uppercase dim text and the value bright; entries without a colon (hebrew date, yom tov names) render as a single bright value. Empty-value entries (e.g. `Parsha:` between parshiyos) are dropped.
+- **Next-upcoming zman.** The next zman that hasn't passed yet is highlighted in amber (`#f5b041`) with a 1px amber "now" divider line above it, so you can see at a glance where you are in the day.
+- **Tomorrow's zmanim.** When `showTomorrowsZmanim` / `showAllTomorrowsZmanim` is on, tomorrow's entries are tagged with a small italic `(tom.)` suffix instead of a leading `*`.
+- **Past zmanim.** When `displaysPastZmanim` + `graysOutPastZmanim` are both on (the default in many setups), past zmanim fade with a gentle gradient — older zmanim are dimmer.
+- **Loading state.** Renders `Loading…` until the first payload arrives, instead of an empty row.
 
 ## displayedFields
 displayedFields is a property in the config that controls the zmanim displayed and their names.  Its type is a JSON object with the 
