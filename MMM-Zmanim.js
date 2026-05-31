@@ -79,6 +79,9 @@ Module.register("MMM-Zmanim", {
       }
       const row = document.createElement("div");
       row.className = "zmanim-calendar-row";
+      if (label.toLowerCase() === "parsha" || label.toLowerCase() === "daf") {
+        row.classList.add("zmanim-calendar-primary");
+      }
       row.innerHTML =
         `<span class="zmanim-cal-label">${label}</span>` +
         `<span class="zmanim-cal-value">${value}</span>`;
@@ -89,7 +92,7 @@ Module.register("MMM-Zmanim", {
       return null;
     }
     const row = document.createElement("div");
-    row.className = "zmanim-calendar-row";
+    row.className = "zmanim-calendar-row zmanim-calendar-primary";
     row.innerHTML = `<span class="zmanim-cal-value">${trimmed}</span>`;
     return row;
   },
